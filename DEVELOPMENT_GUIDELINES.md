@@ -1,7 +1,8 @@
 # DEVELOPMENT_GUIDELINES
 
 ## 목적
-- 스노클링 플래너의 현재 개발 구조, 필수 계약, 기본 작업 순서를 한 문서에서 빠르게 확인하기 위한 가이드다.
+- 스노클링 플래너의 개발 절차와 최소 검증 기준을 정리한 운영 가이드다.
+- 현재 구조와 계약 설명은 `docs/PROJECT_STRUCTURE.md`, 세션 상태는 최신 `SESSION_HANDOFF_YYYY-MM-DD.md`를 우선 참고한다.
 
 ## 프로젝트 기본 원칙
 - 제품명 기본 표기는 `스노클링 플래너`를 유지한다.
@@ -10,11 +11,15 @@
 - 외부 데이터 소스 실패는 정상 운영 케이스다. fallback 응답과 confidence 저하 처리를 제거하지 않는다.
 - `WORLD_TIDES_API_KEY`는 서버 전용으로 유지하고 커밋하지 않는다.
 
-## 현재 구조
-- 앱 진입 화면: `src/app/page.tsx`
-- 글로벌 스타일: `src/app/globals.css`
-- 추천 API 라우트: `src/app/api/recommend/route.ts`
-- 추천 점수 계산: `src/lib/recommendation.ts`
+## 시작 체크리스트
+1. 최신 `SESSION_HANDOFF_YYYY-MM-DD.md` 읽기
+2. `AGENTS.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md` 확인
+3. 현재 상태 요약
+4. 경로 변경 영향 확인
+   - `cwd`
+   - `.env*` 해석 위치
+   - `npm run dev`, `npm run build`
+   - 절대경로 하드코딩 여부
 
 ## 실행과 검증
 1. 의존성 설치
@@ -29,6 +34,8 @@ npm run dev
 ```bash
 npm run build
 ```
+4. API 계약이나 점수 로직을 건드렸다면 샘플 좌표 기준으로 `/api/recommend` 응답을 재검증
+5. 문서를 바꿨다면 `AGENTS.md`, `DEVELOPMENT_GUIDELINES.md`, `docs/*`, 최신 handoff의 역할 분리가 유지되는지 확인
 
 ## 환경변수 기준
 - 로컬 개발은 `.env.local` 사용을 우선 권장한다.
@@ -40,13 +47,18 @@ npm run build
   - `NEXT_PUBLIC_APP_TITLE`
   - `GOOGLE_MAPS_EMBED_API_KEY`
 
-## 문서와 코드 정합성 기준
-- 문서 수정 시 실제 계약 기준은 `src/app/api/recommend/route.ts`와 `src/lib/recommendation.ts`다.
-- 경로 변경이 있었다면 먼저 다음을 다시 확인한다.
-  - 현재 `cwd`
-  - `.env*` 해석 위치
-  - `npm run dev`, `npm run build`
-  - 절대경로 하드코딩 여부
+## 문서 운영 기준
+- 사람 대상 개요와 배포 정보는 `README.md`
+- 에이전트 시작 규칙과 불변 정책은 `AGENTS.md`
+- 앱 구조와 계약 설명은 `docs/PROJECT_STRUCTURE.md`
+- 문서 우선순위와 갱신 규칙은 `docs/DOCUMENT_OPERATIONS.md`
+- 세션별 상태와 다음 작업은 최신 `SESSION_HANDOFF_YYYY-MM-DD.md`
+
+## 변경 후 동기화 기준
+- API 필드명, 상태값, factor key, 환경변수 변화가 생기면 `docs/PROJECT_STRUCTURE.md`를 먼저 갱신
+- 개발 절차가 바뀌면 `DEVELOPMENT_GUIDELINES.md`와 `.cursorrules`를 함께 갱신
+- 세션 결과와 우선순위가 바뀌면 최신 handoff를 갱신
+- 로컬 경로가 바뀌어도 문서에 절대경로를 남기지 않는다
 
 ## 다음 개발 우선순위
 1. 문서와 환경변수 설명을 현재 코드 기준으로 유지

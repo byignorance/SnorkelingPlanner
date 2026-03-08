@@ -17,6 +17,14 @@ npm run build
 
 로컬 환경변수는 `.env.local`에 두는 것을 권장합니다. 기본값이 있는 항목은 비워 둬도 앱이 실행되지만, `WORLD_TIDES_API_KEY`가 없으면 조석 데이터는 폴백 모델로 계산됩니다.
 
+## 문서 안내
+
+- 에이전트 시작 규칙: `AGENTS.md`
+- 개발 절차와 검증 기준: `DEVELOPMENT_GUIDELINES.md`
+- 문서 운영 기준: `docs/DOCUMENT_OPERATIONS.md`
+- 현재 구조와 계약: `docs/PROJECT_STRUCTURE.md`
+- 최신 세션 상태: 최신 `SESSION_HANDOFF_YYYY-MM-DD.md`
+
 ## 프로젝트 범위
 
 - 현재 위치(또는 좌표), 시작 날짜, 체류일수, 목표 수심 입력

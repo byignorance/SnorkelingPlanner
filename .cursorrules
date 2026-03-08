@@ -1,0 +1,29 @@
+프로젝트: 스노클링 플래너
+
+세션 시작 순서
+1. 최신 SESSION_HANDOFF_YYYY-MM-DD.md 읽기
+2. AGENTS.md 읽기
+3. DEVELOPMENT_GUIDELINES.md 읽기
+4. docs/DOCUMENT_OPERATIONS.md, docs/PROJECT_STRUCTURE.md 읽기
+5. README.md, .env.example 확인
+
+작업 시작 전 필수 점검
+- 현재 상태 요약
+- cwd 확인
+- .env* 해석 위치 확인
+- npm run dev / npm run build 동작 여부 확인
+- 절대경로 하드코딩 여부 확인
+
+고정 정책
+- 제품명은 기본적으로 "스노클링 플래너" 사용
+- API 필드명 lat, lng, date, days, targetMin, targetMax, tz 유지
+- 상태값 좋음, 보통, 주의 유지
+- 외부 데이터 실패는 정상 운영 케이스로 취급
+- fallback 및 confidence 저하 처리 제거 금지
+- WORLD_TIDES_API_KEY는 서버 전용, 커밋 금지
+
+문서 운영
+- 구조 설명은 docs/PROJECT_STRUCTURE.md 우선 갱신
+- 절차 변경은 DEVELOPMENT_GUIDELINES.md와 .cursorrules 함께 갱신
+- 세션 상태 변경은 최신 SESSION_HANDOFF_YYYY-MM-DD.md 갱신
+- 문서에 로컬 절대경로 남기지 않기

@@ -309,7 +309,14 @@ function buildOverviewMetrics(result: Response): OverviewMetricItem[] {
     }
   > = {};
 
-  const collectMetricDay = (key: string, date: string, valueText: string | undefined, score: number, value: number | undefined, altValue?: number) => {
+  const collectMetricDay = (
+    key: string,
+    date: string,
+    valueText: string | undefined,
+    score: number,
+    value: number | undefined,
+    altValue?: number
+  ) => {
     if (!metricPointsByKey[key]) metricPointsByKey[key] = [];
     metricPointsByKey[key].push({
       date,
@@ -317,12 +324,12 @@ function buildOverviewMetrics(result: Response): OverviewMetricItem[] {
       grade: gradeFromScore(score)
     });
 
-    if (Number.isFinite(value)) {
+    if (typeof value === 'number' && Number.isFinite(value)) {
       periodValues[key] = periodValues[key] || { value: [], valueAlt: [], score: [] };
       periodValues[key].value.push(value);
     }
 
-    if (Number.isFinite(altValue)) {
+    if (typeof altValue === 'number' && Number.isFinite(altValue)) {
       periodValues[key] = periodValues[key] || { value: [], valueAlt: [], score: [] };
       periodValues[key].valueAlt.push(altValue);
     }

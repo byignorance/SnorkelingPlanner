@@ -3,19 +3,19 @@
 스마트폰 우선으로 설계한 스노클링 조건 추천 앱입니다.
 
 현재 구현은 실제 API 기반 점수 계산 + 폴백 경로를 포함합니다.  
-`/api/recommend`로 전달되는 값: `lat, lng, date, days, targetMin, targetMax`.
+`/api/recommend`로 전달되는 값: `lat, lng, date, days, targetMin, targetMax, tz`.
 
 ## 실행 방법
 
 ```bash
 npm install
 npm run dev
+npm run build
 ```
 
-브라우저에서 앱 실행 URL 열기.
+개발 서버는 기본적으로 `http://localhost:3000`에서 실행됩니다.
 
-참고: 현재 실행 환경이 네트워크 바인딩 제약이 있어 이 세션에서는 서버 기동이 불가할 수 있습니다.
-로컬 PC에서 동일 명령으로 테스트하세요.
+로컬 환경변수는 `.env.local`에 두는 것을 권장합니다. 기본값이 있는 항목은 비워 둬도 앱이 실행되지만, `WORLD_TIDES_API_KEY`가 없으면 조석 데이터는 폴백 모델로 계산됩니다.
 
 ## 프로젝트 범위
 
@@ -56,10 +56,12 @@ npm run dev
 
 1. `WORLD_TIDES_API_KEY` 발급 및 등록  
    - 조석/조차 데이터 소스 보강용
-2. `.env`에 실행 시 API 키 등록  
+2. `.env.local`에 실행 시 환경변수 등록  
    - `WORLD_TIDES_API_KEY` (없으면 조석은 폴백 모델 사용)
+   - `WORLD_TIDES_API_URL` (선택, 기본값 제공)
    - `OPENMETEO_WEATHER_URL` (기본값 제공)
    - `OPENMETEO_MARINE_URL` (기본값 제공)
+   - `NEXT_PUBLIC_APP_TITLE` (선택, 기본값 제공)
 3. Vercel에 배포 시 동일 환경변수 등록
 4. 주소 기반 위치를 쓰려면 지도 서비스 API 키 추가(지오코딩/지도 링크용): `GOOGLE_MAPS_EMBED_API_KEY` 또는 원하는 지도 API
 
@@ -73,25 +75,17 @@ npm run dev
 
 ### Vercel 배포 진행 스텝
 
-1. GitHub에 배포할 레포 푸시
+1. GitHub 저장소 연결 후 푸시
 ```bash
-git init
-git add .
-git commit -m "feat: 실데이터 연동형 스노클링 플래너 MVP"
-```
-
-2. GitHub 새 저장소 생성 후 푸시
-```bash
-git remote add origin <your-repo-url>
 git push -u origin main
 ```
 
-3. Vercel에서 저장소 import 후 프로젝트 생성
+2. Vercel에서 저장소 import 후 프로젝트 생성
 - 프레임워크: Next.js (자동 감지)
 - Node 버전: 18 이상 권장
 - 빌드 명령: `npm run build`
 
-4. Environment Variables 등록
+3. Environment Variables 등록
    - `WORLD_TIDES_API_KEY`
    - `WORLD_TIDES_API_URL` (선택, 기본값 제공)
    - `OPENMETEO_WEATHER_URL` (선택, 기본값 제공)
@@ -99,12 +93,13 @@ git push -u origin main
    - `GOOGLE_MAPS_EMBED_API_KEY` (선택)
    - `NEXT_PUBLIC_APP_TITLE=스노클링 플래너`
 
-5. 배포 후
+4. 배포 후
 - 도메인 연결(원하면 custom domain)
 - Preview URL 확인
 - 모바일에서 위치 접근 권한 테스트
 
 ## 다음 작업
 
+- 문서 기준은 `AGENTS.md`, `DEVELOPMENT_GUIDELINES.md`, `SESSION_HANDOFF_2026-03-08.md`를 우선 참고
 - 실제 API 연동 완료 시 점수 모델의 `source_confidence`을 실측 가용성에 따라 조정
 - 경보/알림(해양안전 경보, 수질 경보, 해파리 주의보) 통합

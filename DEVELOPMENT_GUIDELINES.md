@@ -13,7 +13,7 @@
 
 ## 시작 체크리스트
 1. 최신 `SESSION_HANDOFF_YYYY-MM-DD.md` 읽기
-2. `AGENTS.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md` 확인
+2. `AGENTS.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md`, `docs/OTHER_COMPUTER_SETUP.md` 확인
 3. 현재 상태 요약
 4. 경로 변경 영향 확인
    - `cwd`

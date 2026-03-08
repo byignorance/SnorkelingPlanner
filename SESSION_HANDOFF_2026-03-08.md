@@ -10,7 +10,7 @@
 - 점수 계산 핵심 로직은 `src/lib/recommendation.ts`에 있다.
 - 데이터 소스는 Open-Meteo Weather, Open-Meteo Marine, WorldTides 조합이며, 조석 API 키가 없거나 외부 호출이 실패해도 폴백/저신뢰도 응답으로 내려가게 되어 있다.
 - 코드 기준 절대 로컬 경로 하드코딩은 현재 발견되지 않았다. 다만 문서는 상대 경로/파일명 기준 유지가 원칙이다.
-- 운영 문서 기준은 `AGENTS.md`, `DEVELOPMENT_GUIDELINES.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md`, `README.md`, 이 handoff 순으로 본다.
+- 운영 문서 기준은 `AGENTS.md`, `DEVELOPMENT_GUIDELINES.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md`, `docs/OTHER_COMPUTER_SETUP.md`, `README.md`, 이 handoff 순으로 본다.
 
 ## 최근 완료 작업
 - 모바일 우선 MVP 화면과 추천 결과 표시 UI가 반영되어 있다.
@@ -20,6 +20,7 @@
 - 새 세션 인수인계를 위한 handoff/AGENTS 규칙 문서가 추가되었다.
 - 빌드를 막던 프런트 타입 오류가 정리되어 `npm run build`가 통과한다.
 - 문서 운영 체계를 정리하기 위해 `DEVELOPMENT_GUIDELINES.md`, `docs/*`, `.cursorrules` 기준을 추가했다.
+- 다른 컴퓨터 복제 후 바로 세션을 시작할 수 있도록 `docs/OTHER_COMPUTER_SETUP.md`를 기준 문서에 포함했다.
 
 ## 명칭 기준
 - 제품명 기본 표기는 `스노클링 플래너`로 유지한다.
@@ -58,7 +59,7 @@
 
 ## 새 세션 시작 절차
 1. 가장 먼저 최신 `SESSION_HANDOFF_YYYY-MM-DD.md` 문서를 읽는다.
-2. 그다음 `AGENTS.md`, `DEVELOPMENT_GUIDELINES.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md`, `README.md`, `.env.example`를 읽는다.
+2. 그다음 `AGENTS.md`, `DEVELOPMENT_GUIDELINES.md`, `docs/DOCUMENT_OPERATIONS.md`, `docs/PROJECT_STRUCTURE.md`, `docs/OTHER_COMPUTER_SETUP.md`, `README.md`, `.env.example`를 읽는다.
 3. 작업을 시작하기 전에 현재 상태를 짧게 요약한다. 최소 포함 항목:
    - 현재 구현 범위
    - 아직 검증되지 않은 부분

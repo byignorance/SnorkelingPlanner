@@ -23,6 +23,7 @@ npm run build
 - 개발 절차와 검증 기준: `DEVELOPMENT_GUIDELINES.md`
 - 문서 운영 기준: `docs/DOCUMENT_OPERATIONS.md`
 - 현재 구조와 계약: `docs/PROJECT_STRUCTURE.md`
+- 다른 컴퓨터 초기 설정: `docs/OTHER_COMPUTER_SETUP.md`
 - 최신 세션 상태: 최신 `SESSION_HANDOFF_YYYY-MM-DD.md`
 
 ## 프로젝트 범위

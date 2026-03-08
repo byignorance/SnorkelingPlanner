@@ -11,6 +11,8 @@
   - 개발 절차, 검증 기준, 문서 동기화 기준
 - `docs/PROJECT_STRUCTURE.md`
   - 실제 코드 기준의 구조, 데이터 흐름, API 계약, 환경변수
+- `docs/OTHER_COMPUTER_SETUP.md`
+  - 다른 컴퓨터에서 저장소 복제 후 개발 세션을 여는 초기 절차
 - `SESSION_HANDOFF_YYYY-MM-DD.md`
   - 최신 작업 상태, 최근 완료 사항, 다음 우선순위
 - `README.md`
@@ -26,9 +28,10 @@
 2. `AGENTS.md`
 3. `DEVELOPMENT_GUIDELINES.md`
 4. `docs/PROJECT_STRUCTURE.md`
-5. 최신 `SESSION_HANDOFF_YYYY-MM-DD.md`
-6. `README.md`
-7. `.cursorrules`
+5. `docs/OTHER_COMPUTER_SETUP.md`
+6. 최신 `SESSION_HANDOFF_YYYY-MM-DD.md`
+7. `README.md`
+8. `.cursorrules`
 
 ## 갱신 규칙
 - API 필드명, 상태값, factor key, 환경변수 변경
@@ -41,6 +44,8 @@
   - `AGENTS.md`와 `.cursorrules`를 함께 갱신
 - 검증 절차 변경
   - `DEVELOPMENT_GUIDELINES.md` 갱신
+- 다른 컴퓨터 시작 절차 변경
+  - `docs/OTHER_COMPUTER_SETUP.md`와 `AGENTS.md`, `.cursorrules`를 함께 갱신
 
 ## 작성 원칙
 - 문서에는 로컬 절대경로를 남기지 않는다.
